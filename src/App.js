@@ -1,24 +1,32 @@
 import React from 'react';
 
-import { useGetPokemonByNameQuery } from './store/services/pokemon';
+import navBarWithSwitch from './components/NavBar';
+import CustomSwitch from './switch';
 
 const App = () => {
-  const { data, error, isLoading } = useGetPokemonByNameQuery('all');
-
   return (
     <>
-      {isLoading ? (
-        <p>Still loading...</p>
-      ) : error ? (
-        <p>{error.data.message}</p>
-      ) : (
-        <ul>
-          {data.map((movie) => (
-            <li key={movie.id}>{movie.title}</li>
-          ))}
-        </ul>
-      )}
+      <div className='App'>{navBarWithSwitch(CustomSwitch)}</div>
     </>
+
+    // <>
+    //   {isLoading ? (
+    //     <p>Still loading...</p>
+    //   ) : error ? (
+    //     <p>{error.data.message}</p>
+    //   ) : (
+    //     <ul>
+    //       {data.map((movie) => (
+    //         <div key={movie.id}>
+    //           <li>{movie.title}</li>
+    //           <li>{movie.description}</li>
+    //           <li>{movie.director}</li>
+    //           <img src={`http://localhost:8080${movie.profileImage}`} alt='' />
+    //         </div>
+    //       ))}
+    //     </ul>
+    //   )}
+    // </>
   );
 };
 
