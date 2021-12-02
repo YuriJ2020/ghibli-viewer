@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { useGetPokemonByNameQuery } from '../store/services/pokemon';
+import { useGetAllMovieByIdQuery } from '../store/services/ghibliApi';
+import MovieCard from './MovieCard';
 
 const MovieGrid = () => {
-  const { data, error, isLoading } = useGetPokemonByNameQuery('all');
+  const { data, error, isLoading } = useGetAllMovieByIdQuery('all');
 
   return (
     <>
@@ -14,12 +15,7 @@ const MovieGrid = () => {
       ) : (
         <ul>
           {data.map((movie) => (
-            <div key={movie.id}>
-              <li>{movie.title}</li>
-              <li>{movie.description}</li>
-              <li>{movie.director}</li>
-              <img src={`http://localhost:8080${movie.profileImage}`} alt='' />
-            </div>
+            <MovieCard key={movie.id} movie={movie} />
           ))}
         </ul>
       )}

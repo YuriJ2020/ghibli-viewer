@@ -1,0 +1,10 @@
+---
+- Dummy Item (x)
+- Add Search Feature to Navbar
+  - Refactor Redux Store / RTK Query
+  - by all
+  - by Category ID
+- Add Category Drop-down List to Navbar
+- Create Movie Details Page
+- Improve UI for Movie Grid
+- Improve UI for Not Found Page

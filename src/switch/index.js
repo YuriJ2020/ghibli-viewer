@@ -14,9 +14,8 @@ const CustomSwitch = () => (
         {/* <Route path='/movie/:mid'>
         <MovieDetails />
       </Route> */}
-
-        <Route path='/notfound' element={<NotFound />}></Route>
       </Route>
+      <Route path='/notfound' element={<NotFound />}></Route>
 
       {/* <Route exact path='/notfound'>
         <NotFound />

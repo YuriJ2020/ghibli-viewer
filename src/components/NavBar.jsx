@@ -14,6 +14,8 @@ import {
 
 import { BrowserRouter, Link } from 'react-router-dom';
 
+import totoro from '../assets/totoro-logo.png';
+
 const NavBar = (props) => {
   const [showNav, setShowNav] = useState(false);
 
@@ -25,12 +27,7 @@ const NavBar = (props) => {
         <MDBNavbar expand='lg' light bgColor='light'>
           <MDBContainer fluid>
             <MDBNavbarBrand href='#'>
-              <img
-                src='https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.png'
-                height='30'
-                alt=''
-                loading='lazy'
-              />
+              <img src={totoro} height='60' alt='' loading='lazy' />
             </MDBNavbarBrand>
             <MDBNavbarToggler
               type='button'
@@ -43,9 +40,6 @@ const NavBar = (props) => {
             <MDBCollapse navbar show={showNav}>
               <MDBNavbarNav>
                 <MDBNavbarItem>
-                  {/* <MDBNavbarLink href='/' active aria-current='page'>
-                    All Movies
-                  </MDBNavbarLink> */}
                   <Link to='/'>All Movies</Link>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
