@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { useGetAllMovieByIdQuery } from '../store/services/ghibliApi';
+import { useGetAllMoviesQuery } from '../store/services/ghibliApi';
 import MovieCard from './MovieCard';
 
+import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+
 const MovieGrid = () => {
-  const { data, error, isLoading } = useGetAllMovieByIdQuery('all');
+  const { data, error, isLoading } = useGetAllMoviesQuery();
 
   return (
     <>
@@ -13,11 +15,13 @@ const MovieGrid = () => {
       ) : error ? (
         <p>{error.data.message}</p>
       ) : (
-        <ul>
+        <MDBRow>
           {data.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+            <MDBCol key={`col-${movie.id}`} lg='3' md='4' className='justify-content-center'>
+              <MovieCard movie={movie} />
+            </MDBCol>
           ))}
-        </ul>
+        </MDBRow>
       )}
     </>
   );

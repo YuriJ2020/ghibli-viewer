@@ -8,11 +8,13 @@ export const ghibliApi = createApi({
     // getPokemonByName: builder.query({
     //   query: (name) => `movie/${name}`,
     // }),
-    getAllMovieById: builder.query({
-      query: (id) => `movie/${id}`,
+
+    getAllMovies: builder.query({
+      query: () => 'movie/all',
     }),
-    getAllMovie: builder.query({
-      query: 'all',
+
+    getMovieById: builder.query({
+      query: (id) => `movie/${id}`,
     }),
   }),
 });
@@ -21,4 +23,4 @@ export const ghibliApi = createApi({
 // auto-generated based on the defined endpoints
 
 // export const { useGetPokemonByNameQuery } = ghibliApi;
-export const { useGetAllMovieByIdQuery } = ghibliApi;
+export const { useGetAllMoviesQuery, useGetMovieByIdQuery } = ghibliApi;
