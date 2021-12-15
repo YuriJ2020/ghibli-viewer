@@ -3,7 +3,7 @@ import React from 'react';
 import { useGetAllMoviesQuery } from '../store/services/ghibliApi';
 import MovieCard from './MovieCard';
 
-import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
 const MovieGrid = () => {
   const { data, error, isLoading } = useGetAllMoviesQuery();

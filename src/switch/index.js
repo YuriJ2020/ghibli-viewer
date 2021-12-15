@@ -15,9 +15,6 @@ const CustomSwitch = () => (
 
       <Route path='/notfound' element={<NotFound />} />
 
-      {/* <Route exact path='/notfound'>
-        <NotFound />
-      </Route> */}
       {/* Default route */}
       {/* <Route path='/'>
         <Route to='/notfound' />

@@ -43,6 +43,10 @@ const NavBar = (props) => {
                   <Link to='/'>All Movies</Link>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
+                  <MDBNavbarLink to='/'>Category</MDBNavbarLink>
+                </MDBNavbarItem>
+
+                <MDBNavbarItem>
                   <MDBNavbarLink href='/notfound'>Notfound</MDBNavbarLink>
                 </MDBNavbarItem>
               </MDBNavbarNav>
