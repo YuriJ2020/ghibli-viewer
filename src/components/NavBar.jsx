@@ -19,6 +19,7 @@ import {
 } from 'mdb-react-ui-kit';
 
 import SearchBar from './SearchBar';
+import SortDropDownMenu from './SortDropDownMenu';
 import { useGetAllCategoriesQuery } from '../store/services/ghibliApi';
 
 import totoro from '../assets/totoro-logo.png';
@@ -70,20 +71,7 @@ const NavBar = (props) => {
                   </MDBDropdown>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-                  <MDBDropdown>
-                    <MDBDropdownToggle className='bg-dark'>Sort</MDBDropdownToggle>
-                    <MDBDropdownMenu>
-                      <MDBDropdownItem>
-                        <MDBDropdownLink href='?sort=rank'>By Rank</MDBDropdownLink>
-                      </MDBDropdownItem>
-                      <MDBDropdownItem>
-                        <MDBDropdownLink href='?sort=newest'>By Release Year (Newest First)</MDBDropdownLink>
-                      </MDBDropdownItem>
-                      <MDBDropdownItem>
-                        <MDBDropdownLink href='?sort=oldest'>By Release Year (Oldest First)</MDBDropdownLink>
-                      </MDBDropdownItem>
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
+                  <SortDropDownMenu />
                 </MDBNavbarItem>
               </MDBNavbarNav>
               <SearchBar />
