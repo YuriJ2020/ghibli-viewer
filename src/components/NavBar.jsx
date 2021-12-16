@@ -57,6 +57,8 @@ const NavBar = (props) => {
                     <MDBDropdownMenu>
                       {isLoading ? (
                         <p>Loading....</p>
+                      ) : error ? (
+                        <p>{error?.message}</p>
                       ) : (
                         categories.map(({ id, name }) => (
                           <MDBDropdownItem key={id}>
@@ -64,6 +66,22 @@ const NavBar = (props) => {
                           </MDBDropdownItem>
                         ))
                       )}
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                </MDBNavbarItem>
+                <MDBNavbarItem>
+                  <MDBDropdown>
+                    <MDBDropdownToggle className='bg-dark'>Sort</MDBDropdownToggle>
+                    <MDBDropdownMenu>
+                      <MDBDropdownItem>
+                        <MDBDropdownLink href='?sort=rank'>By Rank</MDBDropdownLink>
+                      </MDBDropdownItem>
+                      <MDBDropdownItem>
+                        <MDBDropdownLink href='?sort=newest'>By Release Year (Newest First)</MDBDropdownLink>
+                      </MDBDropdownItem>
+                      <MDBDropdownItem>
+                        <MDBDropdownLink href='?sort=oldest'>By Release Year (Oldest First)</MDBDropdownLink>
+                      </MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavbarItem>

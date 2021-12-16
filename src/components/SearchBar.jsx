@@ -15,7 +15,6 @@ const SearchBar = () => {
       value={search}
       onChange={(e) => {
         setSearch(e.target.value);
-        console.log(`Search: ${e.target.value}`);
         history.push(`/search/${e.target.value}`);
       }}
     />
