@@ -3,24 +3,25 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 // Define a service using a base URL and expected endpoints
 export const ghibliApi = createApi({
   reducerPath: 'ghibliApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://quote-me-on-ghibli.herokuapp.com/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://quote-me-on-ghibli.herokuapp.com' }),
   endpoints: (builder) => ({
-    // getPokemonByName: builder.query({
-    //   query: (name) => `movie/${name}`,
-    // }),
-
-    getAllMovies: builder.query({
-      query: () => 'movie/all',
+    getMovieById: builder.query({
+      query: (mid) => `/movie/${mid}`,
     }),
 
-    getMovieById: builder.query({
-      query: (id) => `movie/${id}`,
+    getAllCategories: builder.query({
+      query: () => '/category/all',
+    }),
+
+    searchMovies: builder.query({
+      query: ({ keyword, cid }) => ({
+        url: keyword || cid ? '/movie/search' : '/movie/all',
+        params: keyword || cid ? { keyword, categoryId: cid } : null,
+      }),
     }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-
-// export const { useGetPokemonByNameQuery } = ghibliApi;
-export const { useGetAllMoviesQuery, useGetMovieByIdQuery } = ghibliApi;
+export const { useGetMovieByIdQuery, useGetAllCategoriesQuery, useSearchMoviesQuery } = ghibliApi;
