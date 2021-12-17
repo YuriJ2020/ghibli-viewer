@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
+import styled from 'styled-components';
+
 import {
   MDBContainer,
   MDBNavbar,
@@ -11,20 +13,25 @@ import {
   MDBIcon,
   MDBCollapse,
   MDBNavbarNav,
-  MDBDropdown,
-  MDBDropdownToggle,
 } from 'mdb-react-ui-kit';
 
 import CategoryDropDownMenu from './CategoryDropDownMenu';
 import SortDropDownMenu from './SortDropDownMenu';
 import SearchBar from './SearchBar';
 
-import totoro from '../assets/totoro-logo.png';
+import TotoroPNG from '../assets/totoro-logo.png';
 
 const NavBar = (props) => {
   const [showNav, setShowNav] = useState(false);
 
   const { children } = props;
+
+  const MDBNavbarItemS = styled(MDBNavbarItem)`
+    @media (min-width: 992px) {
+      padding-left: 4rem;
+      padding-right: 1rem;
+    }
+  `;
 
   return (
     <>
@@ -32,7 +39,7 @@ const NavBar = (props) => {
         <MDBNavbar expand='lg' dark style={{ backgroundColor: '#26A69A' }}>
           <MDBContainer className='px-5 py-2' fluid>
             <MDBNavbarBrand href='/'>
-              <img src={totoro} height='60' alt='' loading='lazy' />
+              <img src={TotoroPNG} height='60' alt='' loading='lazy' />
               <h4>Studio Ghibli Collection</h4>
             </MDBNavbarBrand>
             <MDBNavbarToggler
@@ -48,9 +55,9 @@ const NavBar = (props) => {
                 <MDBNavbarItem>
                   <MDBNavbarLink href='/'>All Movies</MDBNavbarLink>
                 </MDBNavbarItem>
-                <MDBNavbarItem>
+                <MDBNavbarItemS>
                   <CategoryDropDownMenu />
-                </MDBNavbarItem>
+                </MDBNavbarItemS>
                 <MDBNavbarItem>
                   <SortDropDownMenu />
                 </MDBNavbarItem>

@@ -14,7 +14,7 @@ const categoryIdFromPath = (path) => {
 
 const CategoryDropDownMenu = () => {
   const history = useHistory();
-  const location = useLocation();
+  const location = useLocation(); 
   const initialCategoryID = categoryIdFromPath(location.pathname);
 
   const [categoryID, setCategoryID] = useState(initialCategoryID);
@@ -34,6 +34,8 @@ const CategoryDropDownMenu = () => {
     return _.get(category, 'name', 'Categories');
   };
 
+
+  
   return (
     <MDBDropdown>
       <MDBDropdownToggle className='bg-dark'>{categoryIdToName(categoryID)}</MDBDropdownToggle>
