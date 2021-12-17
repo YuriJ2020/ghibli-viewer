@@ -8,22 +8,21 @@ const SortDropDownMenu = () => {
   const history = useHistory();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const sortFromParam = searchParams.get('sort');
+  const sortCodeFromParam = searchParams.get('sort');
 
-  const [sort, setSort] = useState(sortFromParam);
+  const [sortCode, setSortCode] = useState(sortCodeFromParam);
 
-  const handleSort = (s) => {
+  const createEventHandlerFromSortCode = (s) => {
     const eventHandler = () => {
-      setSort(s);
-      console.log(`sort: ${s}`);
+      setSortCode(s);
       history.push({ search: `?sort=${s}` });
     };
     return eventHandler;
   };
 
-  const handleSortByRank = handleSort('rank');
-  const handleSortByNewest = handleSort('newest');
-  const handleSortByOldest = handleSort('oldest');
+  const sortByRankEventHandler = createEventHandlerFromSortCode('rank');
+  const newestFirstEventHandler = createEventHandlerFromSortCode('newest');
+  const oldestFirstEventHandler = createEventHandlerFromSortCode('oldest');
 
   // What's higher order function?
   // - HOF is a function that returns / creates a function.
@@ -51,7 +50,7 @@ const SortDropDownMenu = () => {
   //   history.push({ search: '?sort=oldest' });
   // }
 
-  const sortStateToTitle = (s) => {
+  const sortCodeToTitle = (s) => {
     const dict = {
       rank: 'By Rank',
       newest: 'Newest First',
@@ -62,16 +61,16 @@ const SortDropDownMenu = () => {
 
   return (
     <MDBDropdown>
-      <MDBDropdownToggle className='bg-dark'>{sortStateToTitle(sort)}</MDBDropdownToggle>
+      <MDBDropdownToggle className='bg-dark'>{sortCodeToTitle(sortCode)}</MDBDropdownToggle>
       <MDBDropdownMenu>
         <MDBDropdownItem>
-          <MDBDropdownLink onClick={handleSortByRank}>By Rank</MDBDropdownLink>
+          <MDBDropdownLink onClick={sortByRankEventHandler}>By Rank</MDBDropdownLink>
         </MDBDropdownItem>
         <MDBDropdownItem>
-          <MDBDropdownLink onClick={handleSortByNewest}>By Release Year (Newest First)</MDBDropdownLink>
+          <MDBDropdownLink onClick={newestFirstEventHandler}>By Release Year (Newest First)</MDBDropdownLink>
         </MDBDropdownItem>
         <MDBDropdownItem>
-          <MDBDropdownLink onClick={handleSortByOldest}>By Release Year (Oldest First)</MDBDropdownLink>
+          <MDBDropdownLink onClick={oldestFirstEventHandler}>By Release Year (Oldest First)</MDBDropdownLink>
         </MDBDropdownItem>
       </MDBDropdownMenu>
     </MDBDropdown>

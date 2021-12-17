@@ -13,21 +13,17 @@ import {
   MDBNavbarNav,
   MDBDropdown,
   MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBDropdownLink,
 } from 'mdb-react-ui-kit';
 
-import SearchBar from './SearchBar';
+import CategoryDropDownMenu from './CategoryDropDownMenu';
 import SortDropDownMenu from './SortDropDownMenu';
-import { useGetAllCategoriesQuery } from '../store/services/ghibliApi';
+import SearchBar from './SearchBar';
 
 import totoro from '../assets/totoro-logo.png';
 
 const NavBar = (props) => {
   const [showNav, setShowNav] = useState(false);
 
-  const { data: categories, isLoading, error } = useGetAllCategoriesQuery();
   const { children } = props;
 
   return (
@@ -53,22 +49,7 @@ const NavBar = (props) => {
                   <MDBNavbarLink href='/'>All Movies</MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-                  <MDBDropdown>
-                    <MDBDropdownToggle className='bg-dark'>Categories</MDBDropdownToggle>
-                    <MDBDropdownMenu>
-                      {isLoading ? (
-                        <p>Loading....</p>
-                      ) : error ? (
-                        <p>{error?.message}</p>
-                      ) : (
-                        categories.map(({ id, name }) => (
-                          <MDBDropdownItem key={id}>
-                            <MDBDropdownLink href={`/category/${id}`}>{name}</MDBDropdownLink>
-                          </MDBDropdownItem>
-                        ))
-                      )}
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
+                  <CategoryDropDownMenu />
                 </MDBNavbarItem>
                 <MDBNavbarItem>
                   <SortDropDownMenu />
