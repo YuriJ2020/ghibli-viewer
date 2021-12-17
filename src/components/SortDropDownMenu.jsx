@@ -1,24 +1,68 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
+import _ from 'lodash';
 
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBDropdownLink } from 'mdb-react-ui-kit';
 
 const SortDropDownMenu = () => {
-  const [sort, setSort] = useState();
   const history = useHistory();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const sortFromParam = searchParams.get('sort');
 
-  const handleSort = (s) => () => {
-    setSort(s);
-    history.push({ search: `?sort=${s}` });
+  const [sort, setSort] = useState(sortFromParam);
+
+  const handleSort = (s) => {
+    const eventHandler = () => {
+      setSort(s);
+      console.log(`sort: ${s}`);
+      history.push({ search: `?sort=${s}` });
+    };
+    return eventHandler;
   };
 
   const handleSortByRank = handleSort('rank');
   const handleSortByNewest = handleSort('newest');
   const handleSortByOldest = handleSort('oldest');
 
+  // What's higher order function?
+  // - HOF is a function that returns / creates a function.
+  //
+  // Why is higher order function needed?
+  // - To improve code reusability.
+
+  // If 'handleSort' were not created:
+  //
+  // const handleSortByRank = () => {
+  //   setSort(s);
+  //   console.log(`sort: ${s}`);
+  //   history.push({ search: '?sort=rank' });
+  // }
+
+  // const handleSortByNewest = () => {
+  //   setSort(s);
+  //   console.log(`sort: ${s}`);
+  //   history.push({ search: '?sort=newest' });
+  // }
+
+  // const handleSortByOldest = () => {
+  //   setSort(s);
+  //   console.log(`sort: ${s}`);
+  //   history.push({ search: '?sort=oldest' });
+  // }
+
+  const sortStateToTitle = (s) => {
+    const dict = {
+      rank: 'By Rank',
+      newest: 'Newest First',
+      oldest: 'Oldest First',
+    };
+    return _.get(dict, s, 'Sort By');
+  };
+
   return (
     <MDBDropdown>
-      <MDBDropdownToggle className='bg-dark'>Sort By {sort}</MDBDropdownToggle>
+      <MDBDropdownToggle className='bg-dark'>{sortStateToTitle(sort)}</MDBDropdownToggle>
       <MDBDropdownMenu>
         <MDBDropdownItem>
           <MDBDropdownLink onClick={handleSortByRank}>By Rank</MDBDropdownLink>
