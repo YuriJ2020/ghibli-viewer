@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 // import _ from 'lodash';
+import Loading from './Loading';
 
 import YouTube from 'react-youtube';
 
@@ -42,7 +43,7 @@ const MovieDetails = () => {
   return (
     <>
       {isLoading ? (
-        <p>Still loading...</p>
+        <Loading />
       ) : error ? (
         <p>{error.data.message}</p>
       ) : (
@@ -50,12 +51,12 @@ const MovieDetails = () => {
           <MDBContainer className='text-white p-0' fluid>
             <DivS movie={movie}>
               <MDBRow>
-                <MDBCol>
-                  <MDBCol className='white-text'>
-                    <MDBCol className='pt-2'>
+                <MDBCol className=''>
+                  <MDBCol className='white-text '>
+                    <MDBCol className='py-5'>
                       <MDBCardTitle className='h1-responsive m-5 font-weight-bold'>{movie.title}</MDBCardTitle>
                       <MDBRow>
-                        <MDBCol lg='6'>
+                        <MDBCol lg='6' className='p-0'>
                           <p className='mx-5 mb-4'>{movie.description}</p>
                           <MDBRow className='mx-5'>
                             <MDBCol>
@@ -83,7 +84,12 @@ const MovieDetails = () => {
                         </MDBCol>
 
                         <MDBCol lg='6' className='text-center'>
-                          <YouTube videoId={movie.trailer.youtubeVideoId} opts={opts} onReady={onReady} />
+                          <YouTube
+                            videoId={movie.trailer.youtubeVideoId}
+                            opts={opts}
+                            onReady={onReady}
+                            className='px-0'
+                          />
                         </MDBCol>
                       </MDBRow>
                     </MDBCol>

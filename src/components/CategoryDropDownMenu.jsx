@@ -14,7 +14,7 @@ const categoryIdFromPath = (path) => {
 
 const CategoryDropDownMenu = () => {
   const history = useHistory();
-  const location = useLocation(); 
+  const location = useLocation();
   const initialCategoryID = categoryIdFromPath(location.pathname);
 
   const [categoryID, setCategoryID] = useState(initialCategoryID);
@@ -34,14 +34,12 @@ const CategoryDropDownMenu = () => {
     return _.get(category, 'name', 'Categories');
   };
 
-
-  
   return (
     <MDBDropdown>
-      <MDBDropdownToggle className='bg-dark'>{categoryIdToName(categoryID)}</MDBDropdownToggle>
+      <MDBDropdownToggle style={{ backgroundColor: '#26A69A' }}>{categoryIdToName(categoryID)}</MDBDropdownToggle>
       <MDBDropdownMenu>
         {isLoading ? (
-          <p>Loading....</p>
+          <p>Loading...</p>
         ) : error ? (
           <p>{error?.message}</p>
         ) : (

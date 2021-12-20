@@ -2,13 +2,12 @@ import React from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import _ from 'lodash';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import Loading from './Loading';
 
 import { useSearchMoviesQuery } from '../store/services/ghibliApi';
 import MovieCard from './MovieCard';
 import { reset } from '../store/faveSlice';
-
-import totoroGIF from '../assets/totoro.gif';
 
 const MovieGrid = () => {
   const { keyword, cid } = useParams();
@@ -45,10 +44,7 @@ const MovieGrid = () => {
     <>
       {isLoading ? (
         <>
-          <div className='d-flex justify-content-center '>
-            <img src={totoroGIF} alt='Loading animation' className='w-25' />
-          </div>
-          <h1 className='text-center'>LOADING....</h1>
+          <Loading />
         </>
       ) : error ? (
         <p>{error.data.message}</p>

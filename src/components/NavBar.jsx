@@ -21,17 +21,17 @@ import SearchBar from './SearchBar';
 
 import TotoroPNG from '../assets/totoro-logo.png';
 
+const MDBNavbarItemS = styled(MDBNavbarItem)`
+  @media (min-width: 992px) {
+    padding-left: 3rem;
+    padding-right: 1rem;
+  }
+`;
+
 const NavBar = (props) => {
   const [showNav, setShowNav] = useState(false);
 
   const { children } = props;
-
-  const MDBNavbarItemS = styled(MDBNavbarItem)`
-    @media (min-width: 992px) {
-      padding-left: 4rem;
-      padding-right: 1rem;
-    }
-  `;
 
   return (
     <>
@@ -39,8 +39,8 @@ const NavBar = (props) => {
         <MDBNavbar expand='lg' dark style={{ backgroundColor: '#26A69A' }}>
           <MDBContainer className='px-5 py-2' fluid>
             <MDBNavbarBrand href='/'>
-              <img src={TotoroPNG} height='60' alt='' loading='lazy' />
-              <h4>Studio Ghibli Collection</h4>
+              <img src={TotoroPNG} height='60' alt='Totoro Icon' />
+              <strong>Studio Ghibli Collection</strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler
               type='button'

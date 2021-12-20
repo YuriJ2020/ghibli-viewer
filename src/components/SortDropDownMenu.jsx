@@ -61,7 +61,7 @@ const SortDropDownMenu = () => {
 
   return (
     <MDBDropdown>
-      <MDBDropdownToggle className='bg-dark'>{sortCodeToTitle(sortCode)}</MDBDropdownToggle>
+      <MDBDropdownToggle style={{ backgroundColor: '#26A69A' }}>{sortCodeToTitle(sortCode)}</MDBDropdownToggle>
       <MDBDropdownMenu>
         <MDBDropdownItem>
           <MDBDropdownLink onClick={sortByRankEventHandler}>By Rank</MDBDropdownLink>

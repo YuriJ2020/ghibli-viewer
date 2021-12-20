@@ -3,12 +3,9 @@ import { Link } from 'react-router-dom';
 
 // import { useGetAllMovieByIdQuery } from '../store/services/ghibliApi';
 
-import { MDBCard, MDBCardImage, MDBRipple, MDBCardText, MDBCardBody } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardImage, MDBRipple, MDBCardText, MDBCardBody, MDBIcon } from 'mdb-react-ui-kit';
 
 import Fave from './Fave';
-
-import RankSVG from '../assets/rank.svg';
-import VideoCameraSVG from '../assets/video-camera.svg';
 
 const MovieCard = (props) => {
   // const { data } = useGetAllMovieByIdQuery('all');
@@ -37,11 +34,12 @@ const MovieCard = (props) => {
             <MDBCardText className='py-2 px-2'>
               <span className='d-flex align-items-center'>
                 <span className='me-3'>
-                  <img src={RankSVG} alt='Crown Icon' style={{ width: '2.5rem' }} />
-                  <span>{rank}</span>
+                  <MDBIcon fas icon='crown' size='lg' color='warning' />
+                  &nbsp;
+                  {rank}
                 </span>
                 <span>
-                  <img src={VideoCameraSVG} alt='video Camera Icon' style={{ width: '1.8rem' }} />
+                  <MDBIcon fas icon='video' size='lg' style={{ color: '#607D8B' }} />
                   &nbsp;
                   <span>{releaseYear}</span>
                 </span>
