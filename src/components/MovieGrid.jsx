@@ -2,9 +2,11 @@ import React from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import _ from 'lodash';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { useSearchMoviesQuery } from '../store/services/ghibliApi';
 import MovieCard from './MovieCard';
+import { reset } from '../store/faveSlice';
 
 import totoroGIF from '../assets/totoro.gif';
 
@@ -14,6 +16,8 @@ const MovieGrid = () => {
   const { data: movies, error, isLoading } = useSearchMoviesQuery({ keyword, cid });
   const searchParams = new URLSearchParams(location.search);
   const sort = searchParams.get('sort');
+
+  const dispatch = useDispatch();
 
   let iteratee;
   let order;
@@ -32,6 +36,11 @@ const MovieGrid = () => {
     order = 'asc';
   }
 
+  if (!isLoading && !error) {
+    const total = movies.length;
+    dispatch(reset(total));
+  }
+
   return (
     <>
       {isLoading ? (
@@ -44,17 +53,19 @@ const MovieGrid = () => {
       ) : error ? (
         <p>{error.data.message}</p>
       ) : (
-        <MDBContainer fluid>
-          <MDBContainer>
-            <MDBRow>
-              {_.orderBy(movies, [iteratee], [order]).map((movie) => (
-                <MDBCol key={`col-${movie.id}`} lg='3' md='6' sm='6'>
-                  <MovieCard movie={movie} />
-                </MDBCol>
-              ))}
-            </MDBRow>
+        <>
+          <MDBContainer fluid>
+            <MDBContainer>
+              <MDBRow>
+                {_.orderBy(movies, [iteratee], [order]).map((movie) => (
+                  <MDBCol key={`col-${movie.id}`} lg='3' md='6' sm='6'>
+                    <MovieCard movie={movie} />
+                  </MDBCol>
+                ))}
+              </MDBRow>
+            </MDBContainer>
           </MDBContainer>
-        </MDBContainer>
+        </>
       )}
     </>
   );

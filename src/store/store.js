@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import faveReducer from './faveSlice';
+
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { ghibliApi } from './services/ghibliApi';
 
 export const store = configureStore({
   reducer: {
+    faveSlice: faveReducer,
     // Add the generated reducer as a specific top-level slice
     [ghibliApi.reducerPath]: ghibliApi.reducer,
   },
