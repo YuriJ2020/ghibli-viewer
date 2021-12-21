@@ -13,9 +13,9 @@ const DivS = styled.div`
 `;
 
 const MDBInputS = styled(MDBInput)`
-  // @media (min-width: 992px) {
-  //   margin: 0 4rem;
-  // }
+  @media (min-width: 992px) {
+    margin: 0 4rem;
+  }
 `;
 
 const SearchBar = () => {
