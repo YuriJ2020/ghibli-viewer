@@ -31,7 +31,7 @@ const SearchBar = () => {
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);
-          history.push(`/search/${e.target.value}`);
+          history.push(`/ghibli-viewer/search/${e.target.value}`);
         }}
       />
     </DivS>

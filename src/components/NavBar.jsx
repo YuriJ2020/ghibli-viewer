@@ -38,7 +38,7 @@ const NavBar = (props) => {
       <BrowserRouter>
         <MDBNavbar expand='lg' dark style={{ backgroundColor: '#26A69A' }}>
           <MDBContainer className='px-5 py-2' fluid>
-            <MDBNavbarBrand href='/'>
+            <MDBNavbarBrand href='/ghibli-viewer'>
               <img src={TotoroPNG} height='60' alt='Totoro Icon' />
               <strong>Studio Ghibli Collection</strong>
             </MDBNavbarBrand>
@@ -53,7 +53,7 @@ const NavBar = (props) => {
             <MDBCollapse navbar show={showNav}>
               <MDBNavbarNav>
                 <MDBNavbarItem>
-                  <MDBNavbarLink href='/'>All Movies</MDBNavbarLink>
+                  <MDBNavbarLink href='/ghibli-viewer'>All Movies</MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItemS>
                   <CategoryDropDownMenu />

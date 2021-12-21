@@ -13,7 +13,7 @@ const MovieCard = (props) => {
     movie: { id, title, summary, profileImage, rank, releaseYear },
   } = props;
 
-  const detailsPath = `/movie/${id}`;
+  const detailsPath = `/ghibli-viewer/movie/${id}`;
 
   return (
     <>

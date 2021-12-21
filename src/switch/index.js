@@ -7,32 +7,32 @@ import NotFound from '../components/NotFound';
 const CustomSwitch = () => {
   return (
     <Switch>
-      <Route exact path='/'>
+      <Route exact path='/ghibli-viewer/'>
         <MovieGrid />
       </Route>
 
-      <Route path='/category/:cid'>
+      <Route path='/ghibli-viewer/category/:cid'>
         <MovieGrid />
       </Route>
 
-      <Route path='/search/:keyword'>
+      <Route path='/ghibli-viewer/search/:keyword'>
         <MovieGrid />
       </Route>
 
-      <Route path='/search'>
-        <Redirect to='/' />
+      <Route path='/ghibli-viewer/search'>
+        <Redirect to='/ghibli-viewer' />
       </Route>
 
-      <Route path='/movie/:mid'>
+      <Route path='/ghibli-viewer/movie/:mid'>
         <MovieDetails />
       </Route>
 
-      <Route exact path='/notfound'>
+      <Route exact path='/ghibli-viewer/notfound'>
         <NotFound />
       </Route>
 
-      <Route path='/'>
-        <Redirect to='/notfound' />
+      <Route path='/ghibli-viewer/'>
+        <Redirect to='/ghibli-viewer/notfound' />
       </Route>
     </Switch>
   );

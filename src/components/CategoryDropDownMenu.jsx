@@ -22,7 +22,7 @@ const CategoryDropDownMenu = () => {
   const createCategoryEventHandlerFromID = (cid) => {
     const eventHandler = () => {
       setCategoryID(cid);
-      history.push({ pathname: `/category/${cid}` });
+      history.push({ pathname: `/ghibli-viewer/category/${cid}` });
     };
     return eventHandler;
   };
