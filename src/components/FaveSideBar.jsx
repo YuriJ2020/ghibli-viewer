@@ -10,6 +10,17 @@ import { selectFavedMovieIds, selectShow, open, close } from '../store/faveSlice
 
 import FavedItem from './FavedItem';
 
+const MDBIconS = styled(MDBIcon)`
+  cursor: pointer;
+  @media (min-width: 992px) {
+    padding-right: 2rem;
+  }
+  &:hover {
+    transform: scale(1.2);
+    transition-duration: 0.2s;
+  }
+`;
+
 const FaveSideBar = () => {
   const dispatch = useDispatch();
   const show = useSelector(selectShow);
@@ -18,18 +29,6 @@ const FaveSideBar = () => {
   const handleClose = () => dispatch(close());
 
   const favedMovieIds = useSelector(selectFavedMovieIds);
-
-  const MDBIconS = styled(MDBIcon)`
-    cursor: pointer;
-
-    @media (min-width: 992px) {
-      padding-right: 2rem;
-    }
-    &:hover {
-      transform: scale(1.2);
-      transition-duration: 0.2s;
-    }
-  `;
 
   return (
     <>

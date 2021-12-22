@@ -14,12 +14,11 @@ const DivS = (props) => {
   const { movie, className, children } = props;
   const DivStyled = styled.div`
     background-image: url(${movie.posterImage}), linear-gradient(to right, #2e2e2e, #ffffff);
-    min-height: 100vh;
+    min-height: 89vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
-    padding-top: 6rem;
   `;
   return <DivStyled className={className} children={children}></DivStyled>;
 };

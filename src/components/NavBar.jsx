@@ -34,7 +34,7 @@ const NavBar = (props) => {
   return (
     <>
       <BrowserRouter>
-        <MDBNavbar expand='lg' dark style={{ backgroundColor: '#3AA7A0' }} fixed='top'>
+        <MDBNavbar expand='lg' dark style={{ backgroundColor: '#3AA7A0' }}>
           <MDBContainer>
             <HomeLogo />
             <MDBNavbarToggler

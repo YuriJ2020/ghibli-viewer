@@ -49,7 +49,7 @@ const MovieGrid = () => {
         <p>{error.data.message}</p>
       ) : (
         <>
-          <MDBContainer style={{ paddingTop: '6rem' }}>
+          <MDBContainer className='pt-2'>
             <MDBRow>
               {_.orderBy(movies, [iteratee], [order]).map((movie) => (
                 <MDBCol key={`col-${movie.id}`} lg='3' md='6' sm='6'>
