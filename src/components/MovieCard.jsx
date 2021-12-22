@@ -30,7 +30,7 @@ const MovieCard = (props) => {
               </div>
             </MDBRipple>
           </Link>
-          <MDBCardBody className='py-0' style={{ backgroundColor: '#26A69A' }}>
+          <MDBCardBody className='py-0 text-white' style={{ backgroundColor: '#44546b' }}>
             <MDBCardText className='py-2' style={{ whiteSpace: 'nowrap' }}>
               <span className='d-flex align-items-center'>
                 <span className='me-3'>

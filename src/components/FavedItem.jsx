@@ -28,7 +28,7 @@ const FavedItem = (props) => {
       ) : (
         <>
           <div className='d-flex align-items-center'>
-            <Link to={detailsPath}>
+            <Link to={detailsPath} onClick={handleClose}>
               <MDBCard style={{ maxWidth: '12rem' }}>
                 <img src={movie.profileImage} alt={movie.title} />
               </MDBCard>
@@ -38,8 +38,8 @@ const FavedItem = (props) => {
               <p>{movie.releaseYear}</p>
               <p>{movie.director}</p>
               <Link to={detailsPath}>
-                <MDBBtn style={{ backgroundColor: '#9FD9D0' }} onClick={handleClose}>
-                  Watch Details
+                <MDBBtn style={{ backgroundColor: '#3AA7A0' }} onClick={handleClose}>
+                  Details
                 </MDBBtn>
               </Link>
             </div>

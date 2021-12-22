@@ -6,6 +6,7 @@ import { MDBDropdownMenu, MDBDropdownItem, MDBDropdownLink, MDBDropdownToggle, M
 
 import { useGetAllCategoriesQuery } from '../store/services/ghibliApi';
 
+// get a category Id from path
 const categoryIdFromPath = (path) => {
   const lastSlash = path.lastIndexOf('/');
   const cid = path.substring(lastSlash + 1);
@@ -22,7 +23,8 @@ const CategoryDropDownMenu = () => {
   const createCategoryEventHandlerFromID = (cid) => {
     const eventHandler = () => {
       setCategoryID(cid);
-      history.push({ pathname: `/ghibli-viewer/category/${cid}` });
+      const arg = { pathname: `/ghibli-viewer/category/${cid}` };
+      history.push(arg);
     };
     return eventHandler;
   };

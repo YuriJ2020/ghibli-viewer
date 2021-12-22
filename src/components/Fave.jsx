@@ -26,13 +26,7 @@ const Fave = ({ id }) => {
 
   return (
     <>
-      <MDBIconS
-        icon='heart'
-        size='2x'
-        className='ms-4'
-        color={fave ? 'danger' : 'transparent'}
-        onClick={handleFaveClick}
-      />
+      <MDBIconS icon='heart' size='2x' className='ms-4' color={fave ? 'danger' : 'light'} onClick={handleFaveClick} />
     </>
   );
 };

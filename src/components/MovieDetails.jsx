@@ -31,14 +31,14 @@ const MovieDetails = () => {
     height: '330',
     width: '460',
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+      autoplay: 0,
+      playsinline: 1,
     },
   };
 
-  const onReady = (e) => {
-    e.target.pauseVideo();
-  };
+  // const onReady = (e) => {
+  //   e.target.pauseVideo();
+  // };
 
   return (
     <>
@@ -50,52 +50,54 @@ const MovieDetails = () => {
         <>
           <MDBContainer className='text-white p-0' fluid>
             <DivS movie={movie}>
-              <MDBRow>
-                <MDBCol className=''>
-                  <MDBCol className='white-text '>
-                    <MDBCol className='py-5'>
-                      <MDBCardTitle className='h1-responsive m-5 font-weight-bold'>{movie.title}</MDBCardTitle>
-                      <MDBRow>
-                        <MDBCol lg='6' className='p-0'>
-                          <p className='mx-5 mb-4'>{movie.description}</p>
-                          <MDBRow className='mx-5'>
-                            <MDBCol>
-                              <p>
-                                <span className='font-weight-bold text-nowrap'>Directed By</span>
-                                <br />
-                                {movie.director}
-                              </p>
-                            </MDBCol>
-                            <MDBCol>
-                              <p>
-                                <span className='font-weight-bold  text-nowrap'>Released Year</span>
-                                <br />
-                                {movie.releaseYear}
-                              </p>
-                            </MDBCol>
-                            <MDBCol>
-                              <p>
-                                <span className='font-weight-bold'> Runtime </span>
-                                <br />
-                                {movie.runningTime}
-                              </p>
-                            </MDBCol>
-                          </MDBRow>
-                        </MDBCol>
+              <MDBContainer>
+                <MDBRow>
+                  <MDBCol className=''>
+                    <MDBCol className='white-text '>
+                      <MDBCol className='py-5'>
+                        <MDBCardTitle className='h1-responsive m-5 font-weight-bold'>{movie.title}</MDBCardTitle>
+                        <MDBRow>
+                          <MDBCol lg='6' className='p-0'>
+                            <p className='mx-5 mb-4'>{movie.description}</p>
+                            <MDBRow className='mx-5'>
+                              <MDBCol>
+                                <p>
+                                  <span className='font-weight-bold text-nowrap'>Directed By</span>
+                                  <br />
+                                  {movie.director}
+                                </p>
+                              </MDBCol>
+                              <MDBCol>
+                                <p>
+                                  <span className='font-weight-bold  text-nowrap'>Released Year</span>
+                                  <br />
+                                  {movie.releaseYear}
+                                </p>
+                              </MDBCol>
+                              <MDBCol>
+                                <p>
+                                  <span className='font-weight-bold'> Runtime </span>
+                                  <br />
+                                  {movie.runningTime}
+                                </p>
+                              </MDBCol>
+                            </MDBRow>
+                          </MDBCol>
 
-                        <MDBCol lg='6' className='text-center'>
-                          <YouTube
-                            videoId={movie.trailer.youtubeVideoId}
-                            opts={opts}
-                            onReady={onReady}
-                            className='px-0'
-                          />
-                        </MDBCol>
-                      </MDBRow>
+                          <MDBCol lg='6' className='text-center'>
+                            <YouTube
+                              videoId={movie.trailer.youtubeVideoId}
+                              opts={opts}
+                              // onReady={onReady}
+                              className='px-0'
+                            />
+                          </MDBCol>
+                        </MDBRow>
+                      </MDBCol>
                     </MDBCol>
                   </MDBCol>
-                </MDBCol>
-              </MDBRow>
+                </MDBRow>
+              </MDBContainer>
             </DivS>
           </MDBContainer>
         </>

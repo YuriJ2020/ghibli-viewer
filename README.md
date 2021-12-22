@@ -14,6 +14,10 @@ It features movie sorting, categorisation, universal search and favourite movie 
 
 ## Screenshots
 
+- Movie Grid
+  ![Movie Grid](/pictures/movie-grid.png)
+
+
 ## Known Defects
 
 - UI responsive issue on small screens
@@ -32,6 +36,8 @@ It features movie sorting, categorisation, universal search and favourite movie 
 
 ## Wire Frames
 
-![Movie Details](/pictures/movie-grid.png)
+- Movie Grid
+  ![Movie Grid](/pictures/movie-grid.png)
 
-![Movie Details](/pictures/movie-details.png)
+- Movie Details
+  ![Movie Details](/pictures/movie-details.png)

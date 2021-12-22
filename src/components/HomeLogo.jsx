@@ -13,7 +13,7 @@ const HomeLogo = () => {
   };
 
   return (
-    <MDBNavbarBrand onClick={handleClick}>
+    <MDBNavbarBrand style={{ cursor: 'pointer' }} onClick={handleClick}>
       <img src={TotoroPNG} height='60' alt='Totoro Icon' />
       <strong>Studio Ghibli Collection</strong>
     </MDBNavbarBrand>

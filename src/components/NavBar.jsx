@@ -3,8 +3,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import { Offcanvas } from 'react-bootstrap';
-
 import {
   MDBContainer,
   MDBNavbar,
@@ -30,10 +28,6 @@ const MDBNavbarItemS = styled(MDBNavbarItem)`
 
 const NavBar = (props) => {
   const [showNav, setShowNav] = useState(false);
-  // offCanvas
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const { children } = props;
 
@@ -60,9 +54,7 @@ const NavBar = (props) => {
                   <SortDropDownMenu />
                 </MDBNavbarItem>
               </MDBNavbarNav>
-
               <SearchBar />
-
               <FaveSideBar />
             </MDBCollapse>
           </MDBContainer>

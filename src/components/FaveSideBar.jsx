@@ -29,10 +29,10 @@ const FaveSideBar = () => {
 
   return (
     <>
-      <MDBIconS icon='heart' size='3x' className='ms-4' style={{ color: '#C5585F' }} onClick={handleShow} around />
+      <MDBIconS far icon='heart' size='2x' color='light' className='' onClick={handleShow} around />
       <Offcanvas show={show} onHide={handleClose} placement='end'>
         <Offcanvas.Header style={{ backgroundColor: '#3AA7A0' }} closeButton>
-          <Offcanvas.Title className='text-white'>Your Faves List</Offcanvas.Title>
+          <Offcanvas.Title className='text-white'>Favourite Movies</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='p-0'>
           {favedMovieIds.map((mid) => (
