@@ -22,4 +22,13 @@ export const faveSlice = createSlice({
 
 export const { flip, reset } = faveSlice.actions;
 
+export const selectFave = (id) => (state) => _.find(state.faveSlice.faves, { id });
+
+// export const selectFave = (id) => {
+//   const selector = (state) => _.find(state.faveSlice.faves, { id });
+//   return selector;
+// };
+
+export const selectFaveCount = (state) => state.faveSlice.faves.length;
+
 export default faveSlice.reducer;

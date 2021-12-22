@@ -2,12 +2,12 @@ import React from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import _ from 'lodash';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Loading from './Loading';
 
 import { useSearchMoviesQuery } from '../store/services/ghibliApi';
 import MovieCard from './MovieCard';
-import { reset } from '../store/faveSlice';
+import { reset, selectFaveCount } from '../store/faveSlice';
 
 const MovieGrid = () => {
   const { keyword, cid } = useParams();
@@ -17,6 +17,7 @@ const MovieGrid = () => {
   const sort = searchParams.get('sort');
 
   const dispatch = useDispatch();
+  const faveCount = useSelector(selectFaveCount);
 
   let iteratee;
   let order;
@@ -35,7 +36,7 @@ const MovieGrid = () => {
     order = 'asc';
   }
 
-  if (!isLoading && !error) {
+  if (!isLoading && !error && faveCount === 0) {
     const total = movies.length;
     dispatch(reset(total));
   }

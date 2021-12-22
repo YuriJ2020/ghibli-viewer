@@ -6,9 +6,7 @@ import styled from 'styled-components';
 import {
   MDBContainer,
   MDBNavbar,
-  MDBNavbarBrand,
   MDBNavbarItem,
-  MDBNavbarLink,
   MDBNavbarToggler,
   MDBIcon,
   MDBCollapse,
@@ -18,6 +16,7 @@ import {
 import CategoryDropDownMenu from './CategoryDropDownMenu';
 import SortDropDownMenu from './SortDropDownMenu';
 import SearchBar from './SearchBar';
+import HomeLogo from './HomeLogo';
 
 import TotoroPNG from '../assets/totoro-logo.png';
 
@@ -38,10 +37,7 @@ const NavBar = (props) => {
       <BrowserRouter>
         <MDBNavbar expand='lg' dark style={{ backgroundColor: '#26A69A' }}>
           <MDBContainer className='px-5 py-2' fluid>
-            <MDBNavbarBrand href='/ghibli-viewer'>
-              <img src={TotoroPNG} height='60' alt='Totoro Icon' />
-              <strong>Studio Ghibli Collection</strong>
-            </MDBNavbarBrand>
+            <HomeLogo style={{}} />
             <MDBNavbarToggler
               type='button'
               aria-expanded='false'
@@ -52,9 +48,6 @@ const NavBar = (props) => {
             </MDBNavbarToggler>
             <MDBCollapse navbar show={showNav}>
               <MDBNavbarNav>
-                <MDBNavbarItem>
-                  <MDBNavbarLink href='/ghibli-viewer'>All Movies</MDBNavbarLink>
-                </MDBNavbarItem>
                 <MDBNavbarItemS>
                   <CategoryDropDownMenu />
                 </MDBNavbarItemS>

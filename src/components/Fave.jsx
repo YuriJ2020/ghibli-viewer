@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { flip } from '../store/faveSlice';
+import { flip, selectFave } from '../store/faveSlice';
 
 import { MDBIcon } from 'mdb-react-ui-kit';
 
@@ -17,7 +17,7 @@ const MDBIconS = styled(MDBIcon)`
 `;
 
 const Fave = ({ id }) => {
-  const { fave } = useSelector((state) => _.find(state.faveSlice.faves, { id })) ?? { fave: false };
+  const { fave } = useSelector(selectFave(id)) ?? { fave: false };
   const dispatch = useDispatch();
 
   const handleFaveClick = () => {
