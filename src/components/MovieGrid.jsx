@@ -44,23 +44,19 @@ const MovieGrid = () => {
   return (
     <>
       {isLoading ? (
-        <>
-          <Loading />
-        </>
+        <Loading />
       ) : error ? (
         <p>{error.data.message}</p>
       ) : (
         <>
-          <MDBContainer fluid>
-            <MDBContainer>
-              <MDBRow>
-                {_.orderBy(movies, [iteratee], [order]).map((movie) => (
-                  <MDBCol key={`col-${movie.id}`} lg='3' md='6' sm='6'>
-                    <MovieCard movie={movie} />
-                  </MDBCol>
-                ))}
-              </MDBRow>
-            </MDBContainer>
+          <MDBContainer style={{ paddingTop: '6rem' }}>
+            <MDBRow>
+              {_.orderBy(movies, [iteratee], [order]).map((movie) => (
+                <MDBCol key={`col-${movie.id}`} lg='3' md='6' sm='6'>
+                  <MovieCard movie={movie} />
+                </MDBCol>
+              ))}
+            </MDBRow>
           </MDBContainer>
         </>
       )}

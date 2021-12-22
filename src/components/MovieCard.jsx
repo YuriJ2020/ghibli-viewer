@@ -18,13 +18,13 @@ const MovieCard = (props) => {
   return (
     <>
       <div className='py-3'>
-        <MDBCard style={{ maxWidth: '17rem' }} className='mx-auto'>
+        <MDBCard style={{ maxWidth: '16rem' }} className='mx-auto'>
           <Link to={detailsPath}>
             <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
               <MDBCardImage src={profileImage} alt={title} fluid />
               <div
-                className='mask d-flex justify-content-center align-items-center px-3'
-                style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+                className='mask d-flex justify-content-center align-items-center px-4'
+                style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
               >
                 <span className='text-white'>{summary}</span>
               </div>

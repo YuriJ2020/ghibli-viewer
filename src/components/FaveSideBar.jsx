@@ -21,6 +21,10 @@ const FaveSideBar = () => {
 
   const MDBIconS = styled(MDBIcon)`
     cursor: pointer;
+
+    @media (min-width: 992px) {
+      padding-right: 2rem;
+    }
     &:hover {
       transform: scale(1.2);
       transition-duration: 0.2s;
@@ -29,7 +33,7 @@ const FaveSideBar = () => {
 
   return (
     <>
-      <MDBIconS far icon='heart' size='2x' color='light' className='' onClick={handleShow} around />
+      <MDBIconS far icon='heart' size='2x' color='light' onClick={handleShow} />
       <Offcanvas show={show} onHide={handleClose} placement='end'>
         <Offcanvas.Header style={{ backgroundColor: '#3AA7A0' }} closeButton>
           <Offcanvas.Title className='text-white'>Favourite Movies</Offcanvas.Title>

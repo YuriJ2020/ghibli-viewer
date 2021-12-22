@@ -14,11 +14,12 @@ const DivS = (props) => {
   const { movie, className, children } = props;
   const DivStyled = styled.div`
     background-image: url(${movie.posterImage}), linear-gradient(to right, #2e2e2e, #ffffff);
-    min-height: 86vh;
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
+    padding-top: 6rem;
   `;
   return <DivStyled className={className} children={children}></DivStyled>;
 };
@@ -32,13 +33,8 @@ const MovieDetails = () => {
     width: '460',
     playerVars: {
       autoplay: 0,
-      playsinline: 1,
     },
   };
-
-  // const onReady = (e) => {
-  //   e.target.pauseVideo();
-  // };
 
   return (
     <>
@@ -52,8 +48,8 @@ const MovieDetails = () => {
             <DivS movie={movie}>
               <MDBContainer>
                 <MDBRow>
-                  <MDBCol className=''>
-                    <MDBCol className='white-text '>
+                  <MDBCol>
+                    <MDBCol className='white-text'>
                       <MDBCol className='py-5'>
                         <MDBCardTitle className='h1-responsive m-5 font-weight-bold'>{movie.title}</MDBCardTitle>
                         <MDBRow>

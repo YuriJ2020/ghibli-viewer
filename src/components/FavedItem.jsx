@@ -20,9 +20,7 @@ const FavedItem = (props) => {
   return (
     <>
       {isLoading ? (
-        <>
-          <p>Loading Movie {id}...</p>
-        </>
+        <p className='text-center'>Loading Movie {id}...</p>
       ) : error ? (
         <p>{error.data.message}</p>
       ) : (

@@ -8,13 +8,13 @@ import { MDBInput } from 'mdb-react-ui-kit';
 
 const DivS = styled.div`
   @media (min-width: 992px) {
-    padding-right: 5rem;
+    padding-right: 2rem;
   }
 `;
 
 const MDBInputS = styled(MDBInput)`
   @media (min-width: 992px) {
-    margin: 0 4rem;
+    width: 15rem;
   }
 `;
 
