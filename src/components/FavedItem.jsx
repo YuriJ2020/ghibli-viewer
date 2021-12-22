@@ -1,23 +1,50 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import { close } from '../store/faveSlice';
 
 import { useGetMovieByIdQuery } from '../store/services/ghibliApi';
+import { MDBCard, MDBBtn } from 'mdb-react-ui-kit';
+
+import { Link } from 'react-router-dom';
 
 const FavedItem = (props) => {
   const { id } = props;
   const { data: movie, error, isLoading } = useGetMovieByIdQuery(id);
 
+  const dispatch = useDispatch();
+  const handleClose = () => dispatch(close());
+
+  const detailsPath = `/ghibli-viewer/movie/${id}`;
+
   return (
     <>
       {isLoading ? (
         <>
-          <span>Loading Movie {id}...</span>
+          <p>Loading Movie {id}...</p>
         </>
       ) : error ? (
-        <span>{error.data.message}</span>
+        <p>{error.data.message}</p>
       ) : (
         <>
-          <span>{movie.title}</span>
-          <img src={movie.profileImage} alt={movie.title} />
+          <div className='d-flex align-items-center'>
+            <Link to={detailsPath}>
+              <MDBCard style={{ maxWidth: '12rem' }}>
+                <img src={movie.profileImage} alt={movie.title} />
+              </MDBCard>
+            </Link>
+            <div className='py-2 px-2'>
+              <p className='font-weight-bold'>{movie.title}</p>
+              <p>{movie.releaseYear}</p>
+              <p>{movie.director}</p>
+              <Link to={detailsPath}>
+                <MDBBtn style={{ backgroundColor: '#9FD9D0' }} onClick={handleClose}>
+                  Watch Details
+                </MDBBtn>
+              </Link>
+            </div>
+          </div>
+          <hr className='m-0' />
         </>
       )}
     </>

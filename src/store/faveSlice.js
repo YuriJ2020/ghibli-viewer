@@ -3,8 +3,14 @@ import _ from 'lodash';
 
 export const faveSlice = createSlice({
   name: 'faveSlice',
-  initialState: { faves: [] },
+  initialState: { show: false, faves: [] },
   reducers: {
+    open: (state) => {
+      state.show = true;
+    },
+    close: (state) => {
+      state.show = false;
+    },
     reset: (state, action) => {
       // get a payload of total
       const total = action.payload;
@@ -20,14 +26,11 @@ export const faveSlice = createSlice({
   },
 });
 
-export const { flip, reset } = faveSlice.actions;
+export const { open, close, flip, reset } = faveSlice.actions;
+
+export const selectShow = (state) => state.faveSlice.show;
 
 export const selectFave = (id) => (state) => _.find(state.faveSlice.faves, { id });
-
-// export const selectFave = (id) => {
-//   const selector = (state) => _.find(state.faveSlice.faves, { id });
-//   return selector;
-// };
 
 export const selectFaveCount = (state) => state.faveSlice.faves.length;
 
