@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import styled from 'styled-components';
 
+import { Offcanvas } from 'react-bootstrap';
+
 import {
   MDBContainer,
   MDBNavbar,
@@ -17,8 +19,7 @@ import CategoryDropDownMenu from './CategoryDropDownMenu';
 import SortDropDownMenu from './SortDropDownMenu';
 import SearchBar from './SearchBar';
 import HomeLogo from './HomeLogo';
-
-import TotoroPNG from '../assets/totoro-logo.png';
+import FaveSideBar from './FaveSideBar';
 
 const MDBNavbarItemS = styled(MDBNavbarItem)`
   @media (min-width: 992px) {
@@ -29,6 +30,10 @@ const MDBNavbarItemS = styled(MDBNavbarItem)`
 
 const NavBar = (props) => {
   const [showNav, setShowNav] = useState(false);
+  // offCanvas
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const { children } = props;
 
@@ -37,7 +42,7 @@ const NavBar = (props) => {
       <BrowserRouter>
         <MDBNavbar expand='lg' dark style={{ backgroundColor: '#26A69A' }}>
           <MDBContainer className='px-5 py-2' fluid>
-            <HomeLogo style={{}} />
+            <HomeLogo />
             <MDBNavbarToggler
               type='button'
               aria-expanded='false'
@@ -55,7 +60,10 @@ const NavBar = (props) => {
                   <SortDropDownMenu />
                 </MDBNavbarItem>
               </MDBNavbarNav>
+
               <SearchBar />
+
+              <FaveSideBar />
             </MDBCollapse>
           </MDBContainer>
         </MDBNavbar>

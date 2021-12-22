@@ -31,4 +31,9 @@ export const selectFave = (id) => (state) => _.find(state.faveSlice.faves, { id 
 
 export const selectFaveCount = (state) => state.faveSlice.faves.length;
 
+export const selectFavedMovieIds = (state) => {
+  const favedMovies = _.filter(state.faveSlice.faves, (item) => item.fave);
+  return _.map(favedMovies, (item) => item.id);
+};
+
 export default faveSlice.reducer;
