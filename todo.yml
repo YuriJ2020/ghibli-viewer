@@ -8,3 +8,11 @@
 - Create Movie Details Page
 - Improve UI for Movie Grid
 - Improve UI for Not Found Page
+
+- remove Fave state from the redux tool kit
+- implement the fave feature
+- result state
+
+- fix the search bug
+- fix the youtube bug
+- set up the not found page in github

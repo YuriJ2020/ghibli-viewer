@@ -30,8 +30,8 @@ const MovieCard = (props) => {
               </div>
             </MDBRipple>
           </Link>
-          <MDBCardBody className='p-0'>
-            <MDBCardText className='py-2 px-2'>
+          <MDBCardBody className='py-0' style={{ backgroundColor: '#26A69A' }}>
+            <MDBCardText className='py-2' style={{ whiteSpace: 'nowrap' }}>
               <span className='d-flex align-items-center'>
                 <span className='me-3'>
                   <MDBIcon fas icon='crown' size='lg' color='warning' />
@@ -43,7 +43,7 @@ const MovieCard = (props) => {
                   &nbsp;
                   <span>{releaseYear}</span>
                 </span>
-                <span className='ms-5'>
+                <span className='ms-4'>
                   <Fave id={id} />
                 </span>
               </span>
