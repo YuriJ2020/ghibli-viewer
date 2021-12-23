@@ -1,12 +1,11 @@
 import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { close } from '../store/faveSlice';
 
 import { useGetMovieByIdQuery } from '../store/services/ghibliApi';
 import { MDBCard, MDBBtn } from 'mdb-react-ui-kit';
-
-import { Link } from 'react-router-dom';
 
 const FavedItem = (props) => {
   const { id } = props;
@@ -22,7 +21,7 @@ const FavedItem = (props) => {
       {isLoading ? (
         <p className='text-center'>Loading Movie {id}...</p>
       ) : error ? (
-        <p>{error.data.message}</p>
+        <Redirect to='/ghibli-viewer/notfound' />
       ) : (
         <>
           <div className='d-flex align-items-center'>

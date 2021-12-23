@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, Redirect } from 'react-router-dom';
 import _ from 'lodash';
 
 import { MDBDropdownMenu, MDBDropdownItem, MDBDropdownLink, MDBDropdownToggle, MDBDropdown } from 'mdb-react-ui-kit';
@@ -43,7 +43,7 @@ const CategoryDropDownMenu = () => {
         {isLoading ? (
           <p>Loading...</p>
         ) : error ? (
-          <p>{error?.message}</p>
+          <Redirect to='/ghibli-viewer/notfound' />
         ) : (
           categories.map(({ id, name }) => {
             const categoryEventHandler = createCategoryEventHandlerFromID(id);

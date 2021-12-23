@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, Redirect } from 'react-router-dom';
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import _ from 'lodash';
 import { useSelector, useDispatch } from 'react-redux';
@@ -46,7 +46,7 @@ const MovieGrid = () => {
       {isLoading ? (
         <Loading />
       ) : error ? (
-        <p>{error.data.message}</p>
+        <Redirect to='/ghibli-viewer/notfound' />
       ) : (
         <>
           <MDBContainer className='pt-2'>

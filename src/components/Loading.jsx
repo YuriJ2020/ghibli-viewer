@@ -1,8 +1,7 @@
 import React from 'react';
+import { Spinner } from 'react-bootstrap';
 
 import styled from 'styled-components';
-
-import totoroGIF from '../assets/totoro.gif';
 
 const DivS = styled.div`
   display: flex;
@@ -11,16 +10,11 @@ const DivS = styled.div`
   height: 80vh;
 `;
 
-const ImgS = styled.img`
-  width: 14rem;
-`;
-
 const Loading = () => {
   return (
     <>
       <DivS>
-        <ImgS src={totoroGIF} alt='Loading animation' />
-        <h1 className='text-center'>LOADING....</h1>
+        <Spinner animation='border' variant='success' />
       </DivS>
     </>
   );

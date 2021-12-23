@@ -1,6 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-// import _ from 'lodash';
+import { useParams, Redirect } from 'react-router-dom';
 import Loading from './Loading';
 
 import YouTube from 'react-youtube';
@@ -40,7 +39,7 @@ const MovieDetails = () => {
       {isLoading ? (
         <Loading />
       ) : error ? (
-        <p>{error.data.message}</p>
+        <Redirect to='/ghibli-viewer/notfound' />
       ) : (
         <>
           <MDBContainer className='text-white p-0' fluid>
@@ -78,14 +77,8 @@ const MovieDetails = () => {
                               </MDBCol>
                             </MDBRow>
                           </MDBCol>
-
                           <MDBCol lg='6' className='text-center'>
-                            <YouTube
-                              videoId={movie.trailer.youtubeVideoId}
-                              opts={opts}
-                              // onReady={onReady}
-                              className='px-0'
-                            />
+                            <YouTube videoId={movie.trailer.youtubeVideoId} opts={opts} />
                           </MDBCol>
                         </MDBRow>
                       </MDBCol>
