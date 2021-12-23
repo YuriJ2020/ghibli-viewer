@@ -12,7 +12,7 @@ export const faveSlice = createSlice({
       state.show = false;
     },
     reset: (state, action) => {
-      // get a payload of total
+      // get a payload of total movies
       const total = action.payload;
       // create Array instance
       const initial = Array.from({ length: total }, (_v, i) => ({ id: i, fave: false }));

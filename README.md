@@ -15,8 +15,13 @@ It features movie sorting, categorisation, universal search and favourite movie 
 ## Screenshots
 
 - Movie Grid
-  ![Movie Grid](/pictures/movie-grid.png)
+  ![Movie Grid](/pictures/screenshots/movie-grid.png)
 
+- Movie Details
+  ![Movie Details](/pictures/screenshots/movie-details.png)
+
+- Favourite Side Panel
+  ![Fave Feature ](/pictures/screenshots/fave-feature.png)
 
 ## Known Defects
 
@@ -37,7 +42,7 @@ It features movie sorting, categorisation, universal search and favourite movie 
 ## Wire Frames
 
 - Movie Grid
-  ![Movie Grid](/pictures/movie-grid.png)
+  ![Movie Grid](/pictures/wireframes/movie-grid.png)
 
 - Movie Details
-  ![Movie Details](/pictures/movie-details.png)
+  ![Movie Details](/pictures/wireframes/movie-details.png)
